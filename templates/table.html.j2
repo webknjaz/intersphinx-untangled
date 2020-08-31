@@ -1,0 +1,37 @@
+{% extends 'index.html.j2' %}
+
+{% block subtitle %}{{ host }}{% endblock %}
+
+{% block content %}
+<h1>{{ host }}</h1>
+{% for url, inventory in inventories.items() %}
+<h2><a href="{{ url }}">{{ url }}</a></h2>
+{% for role, role_elements in inventory.items() %}
+<h3>{{ role }}</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Project Name</th>
+      <th>Version</th>
+      <th>Location</th>
+      <th>Display Name</th>
+      <th>Usage example</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for identifier, (projname, version, location, dispname) in role_elements.items() %}
+    <tr>
+      <td>{{ identifier }}</td>
+      <td>{{ projname }}</td>
+      <td>{{ version }}</td>
+      <td>{{ location }}</td>
+      <td>{{ dispname }}</td>
+      <td><code>:{{ role }}:`{{ identifier }}`</code></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endfor %}
+{% endfor %}
+{% endblock %}

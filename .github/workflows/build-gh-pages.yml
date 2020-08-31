@@ -1,0 +1,86 @@
+name: Build a static website on GH pages
+
+on:
+  push:
+  pull_request:
+  schedule:
+  # https://crontab.guru/#23_*/4_*_*_*
+  - cron: 23 */4 * * *  # At minute 23 past every 4th hour.
+
+jobs:
+  build:
+    name: 👷
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Switch to Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install packaging-related dists from PyPI
+      run: python -m pip install -U setuptools pip wheel --user
+    - name: Install jinja2, PyYAML and Sphinx dists from PyPI
+      run: python -m pip install jinja2 pyyaml sphinx --user
+    - name: Fetch the config from the repo
+      uses: actions/checkout@v2
+    - name: Generate a static website
+      run: |
+        from collections import defaultdict
+        from functools import partial
+        from pathlib import Path
+        from unittest.mock import Mock
+        from urllib.parse import urljoin, urlparse
+
+        import jinja2
+        import yaml
+        from sphinx.ext.intersphinx import fetch_inventory, INVENTORY_FILENAME
+
+
+        sphinx_app_mock = Mock()
+        sphinx_app_mock.config.intersphinx_timeout = None
+        sphinx_app_mock.config.tls_verify = False
+        sphinx_app_mock.config.user_agent = None
+        sphinx_app_mock.srcdir = ''
+
+        fetch_sphinx_inventory = partial(fetch_inventory, sphinx_app_mock, '')
+
+
+        config = yaml.safe_load(Path('sphinx-websites.yml').read_text())
+
+        websites = defaultdict(set)
+        for url in config:
+            websites[urlparse(url).netloc].add(url)
+
+        env = jinja2.Environment(
+            loader=jinja2.FileSystemLoader(searchpath='templates/'),
+        )
+        index_template = env.get_template('index.html.j2')
+        table_template = env.get_template('table.html.j2')
+
+        rendered_pages = {}
+        for host, urls in websites.items():
+            inventories = {
+                url: fetch_sphinx_inventory(
+                    urljoin(url, INVENTORY_FILENAME),
+                )
+                for url in urls
+            }
+            rendered_pages[host] = table_template.render(locals())
+
+        rendered_index = index_template.render(sites=websites.keys())
+
+        www_dir = Path('www')
+        www_dir.mkdir()
+        for host in websites:
+            (www_dir / host).mkdir()
+            (www_dir / host / 'index.html').write_text(
+                rendered_pages[host],
+            )
+        (www_dir / 'index.html').write_text(rendered_index)
+      shell: python
+    - name: Publish the dumb PyPI website to GH Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        force_orphan: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: www
