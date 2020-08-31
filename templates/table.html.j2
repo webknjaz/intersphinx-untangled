@@ -3,7 +3,7 @@
 {% block subtitle %}{{ host }}{% endblock %}
 
 {% block content %}
-<h1>{{ host }}</h1>
+<h1>{{ host }} <a href=".." title="Go back to the full list">↩</a></h1>
 {% for url, inventory in inventories.items() %}
 <h2><a href="{{ url }}">{{ url }}</a></h2>
 {% for role, role_elements in inventory.items() %}
