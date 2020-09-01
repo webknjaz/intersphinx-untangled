@@ -27,7 +27,11 @@
       <td>{{ version }}</td>
       <td><a href="{{ url }}/{{ location }}">{{ location }}</a></td>
       <td>{{ dispname }}</td>
-      <td><code>:{{ role }}:`{{ identifier }}`</code></td>
+      <td>
+        <code>
+          :{% if role == 'std:label' %}std:ref{% else %}{{ role }}{% endif %}:`{{ identifier }}`
+        </code>
+      </td>
     </tr>
     {% endfor %}
   </tbody>
