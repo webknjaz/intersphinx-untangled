@@ -2,10 +2,12 @@
 - https://ansible-lint.rtfd.io/en/latest/
 - https://cython.rtfd.io/en/latest/
 - https://docutils.rtfd.io/en/sphinx-docs/
+- https://docs.aiohttp.org/en/latest/
 - https://docs.ansible.com/ansible/latest/
 - https://docs.python.org/3/
 - https://docs.python.org/2/
 - https://jinja.palletsprojects.com/en/master/
+- https://multidict.rtfd.io/en/latest/
 - https://packaging.python.org/
 - https://pep517.rtfd.io/en/latest/
 - https://pip.pypa.io/en/latest/
@@ -13,4 +15,5 @@
 - https://setuptools.rtfd.io/en/latest/
 - https://twine.rtfd.io/en/latest/
 - https://www.sphinx-doc.org/
+- https://yarl.rtfd.io/en/latest/
 ...
