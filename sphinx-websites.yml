@@ -9,6 +9,7 @@
 - https://docs.ansible.com/ansible-core/devel/
 - https://docs.python.org/3/
 - https://docs.python.org/2/
+- https://docs.python-requests.org/en/master/
 - https://docs.rtfd.io/en/stable/
 - https://jinja.palletsprojects.com/
 - https://multidict.rtfd.io/en/latest/
@@ -25,5 +26,4 @@
 - https://www.pyopenssl.org/en/latest/
 - https://www.sphinx-doc.org/en/master/
 - https://yarl.rtfd.io/en/latest/
-- https://docs.python-requests.org/en/master/
 ...
