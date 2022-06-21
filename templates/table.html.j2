@@ -29,7 +29,7 @@
       <td>{{ dispname }}</td>
       <td>
         <code>
-          :{% if role == 'std:label' %}std:ref{% else %}{{ role }}{% endif %}:`{{ identifier }}`
+          :{% if role == 'std:label' %}std:ref{% elif role == 'py:module' %}py:mod{% else %}{{ role }}{% endif %}:`{{ identifier }}`
         </code>
       </td>
     </tr>
