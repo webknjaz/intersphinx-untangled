@@ -14,6 +14,7 @@
 # - https://docs.ansible.com/ansible/latest/
 - https://docs.ansible.com/ansible-core/devel/
 - https://docs.openstack.org/glance/latest/
+- https://docs.pytest.org/en/latest/
 - https://docs.python.org/3.11/
 - https://docs.python.org/3.10/
 - https://docs.python.org/3.9/
