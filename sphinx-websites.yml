@@ -1,4 +1,5 @@
 ---
+
 - https://ansible-lint.rtfd.io
 - https://ansible-navigator.rtfd.io/en/latest
 - https://ansible-runner.rtfd.io/en/latest
@@ -65,4 +66,5 @@
 - https://www.pyopenssl.org/en/latest
 - https://www.sphinx-doc.org/en/master
 - https://yarl.rtfd.io/en/latest
+
 ...
