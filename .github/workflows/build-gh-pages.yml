@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Switch to Python 3.8
+    - name: Switch to Python 3.11
       uses: actions/setup-python@v4
       with:
-        python-version: 3.8
+        python-version: 3.11
     - name: Install packaging-related dists from PyPI
       run: python -m pip install -U setuptools pip wheel --user
     - name: Install jinja2, PyYAML and Sphinx dists from PyPI
