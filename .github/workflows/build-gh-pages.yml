@@ -25,7 +25,7 @@ jobs:
     - name: Install jinja2, PyYAML and Sphinx dists from PyPI
       run: python -m pip install jinja2 pyyaml sphinx --user
     - name: Fetch the config from the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Generate a static website
       run: |
         from collections import defaultdict
