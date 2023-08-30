@@ -81,12 +81,31 @@ jobs:
             )
         (www_dir / 'index.html').write_text(rendered_index)
       shell: python
-    - name: Publish the dumb PyPI website to GH Pages
-      if: github.event_name != 'pull_request'
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Save the generated HTML output as a GitHub Actions artifact
+      uses: actions/upload-pages-artifact@v2
       with:
-        force_orphan: true
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: www
+        path: www
+
+  publish:
+    name: 📢
+    needs:
+    - build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: gh-pages
+      url: https://webknjaz.github.io/intersphinx-untangled/
+
+    permissions:
+      pages: write  # This allows to publish a GitHub Pages site
+      # `id-token` allows GitHub Pages to verify the deployment originates
+      # from an appropriate source through OpenID Connect, according to the
+      # README of the `actions/deploy-pages` action.
+      id-token: write
+
+    steps:
+    - name: Publish the Lektor website to GH Pages
+      uses: actions/deploy-pages@v2
 
 ...
