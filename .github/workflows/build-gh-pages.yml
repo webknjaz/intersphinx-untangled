@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Switch to Python 3.8
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.8
     - name: Install packaging-related dists from PyPI
