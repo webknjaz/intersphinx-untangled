@@ -1,6 +1,8 @@
+---
+
 name: Build a static website on GH pages
 
-on:
+on:  # yamllint disable-line rule:truthy
   push:
   pull_request:
   schedule:
@@ -86,3 +88,5 @@ jobs:
         force_orphan: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: www
+
+...
