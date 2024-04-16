@@ -105,7 +105,7 @@ jobs:
       id-token: write
 
     steps:
-    - name: Publish the Lektor website to GH Pages
+    - name: Publish the website to GH Pages
       uses: actions/deploy-pages@v2
 
 ...
