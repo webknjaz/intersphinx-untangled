@@ -66,7 +66,7 @@ jobs:
                 url: fetch_sphinx_inventory(
                     urljoin(f'{url !s}/', INVENTORY_FILENAME),
                 )
-                for url in map(partial(str.rstrip(chars='/')), urls)
+                for url in map(partial(str.rstrip, chars='/'), urls)
             }
             rendered_pages[host] = table_template.render(locals())
 
