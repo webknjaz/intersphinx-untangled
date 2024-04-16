@@ -63,10 +63,10 @@ jobs:
         rendered_pages = {}
         for host, urls in websites.items():
             inventories = {
-                url.rstrip('/'): fetch_sphinx_inventory(
-                    urljoin(url, INVENTORY_FILENAME),
+                url: fetch_sphinx_inventory(
+                    urljoin(f'{url !s}/', INVENTORY_FILENAME),
                 )
-                for url in urls
+                for url in map(partial(str.rstrip(chars='/')), urls)
             }
             rendered_pages[host] = table_template.render(locals())
 
