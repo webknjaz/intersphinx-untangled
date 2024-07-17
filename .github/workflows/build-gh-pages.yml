@@ -36,7 +36,8 @@ jobs:
 
         import jinja2
         import yaml
-        from sphinx.ext.intersphinx import fetch_inventory, INVENTORY_FILENAME
+        from sphinx.builders.html import INVENTORY_FILENAME
+        from sphinx.ext.intersphinx import fetch_inventory
 
 
         sphinx_app_mock = Mock()
