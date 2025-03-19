@@ -83,7 +83,7 @@ jobs:
         (www_dir / 'index.html').write_text(rendered_index)
       shell: python
     - name: Save the generated HTML output as a GitHub Actions artifact
-      uses: actions/upload-pages-artifact@v2
+      uses: actions/upload-pages-artifact@v3
       with:
         path: www
 
