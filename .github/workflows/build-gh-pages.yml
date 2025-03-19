@@ -107,6 +107,6 @@ jobs:
 
     steps:
     - name: Publish the website to GH Pages
-      uses: actions/deploy-pages@v2
+      uses: actions/deploy-pages@v4
 
 ...
