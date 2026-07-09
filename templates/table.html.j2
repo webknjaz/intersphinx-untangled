@@ -20,13 +20,13 @@
     </tr>
   </thead>
   <tbody>
-    {% for identifier, item in role_elements.items() %}
+    {% for identifier, inventory_item in role_elements.items() %}
     <tr>
       <td>{{ identifier }}</td>
-      <td>{{ item.project_name }}</td>
-      <td>{{ item.project_version }}</td>
-      <td><a href="{{ url }}/{{ item.uri }}">{{ item.uri }}</a></td>
-      <td>{{ item.displayname }}</td>
+      <td>{{ inventory_item.project_name }}</td>
+      <td>{{ inventory_item.project_version }}</td>
+      <td><a href="{{ url }}/{{ inventory_item.uri }}">{{ inventory_item.uri }}</a></td>
+      <td>{{ inventory_item.displayname }}</td>
       <td>
         <code>
           :{% if role == 'std:label' %}std:ref{% elif role == 'py:module' %}py:mod{% else %}{{ role }}{% endif %}:`{{ identifier }}`
