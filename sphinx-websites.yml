@@ -1,6 +1,6 @@
 ---
 
-- https://ansible-lint.rtfd.io
+# - https://ansible-lint.rtfd.io
 - https://ansible-navigator.rtfd.io
 - https://ansible-pylibssh.rtfd.io/en/latest
 - https://ansible-runner.rtfd.io/en/latest
@@ -8,6 +8,7 @@
 - https://cffi.rtfd.io/en/latest
 - https://cheroot.cherrypy.dev/en/latest
 - https://cibuildwheel.pypa.io/en/latest
+- https://click.palletsprojects.com/en/latest
 - https://conda.io/en/latest
 - https://coverage.rtfd.io/en/latest
 - https://cython.rtfd.io/en/latest

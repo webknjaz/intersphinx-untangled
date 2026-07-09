@@ -4,6 +4,16 @@
 
 {% block content %}
 <h1>{{ host }} <a href=".." title="Go back to the full list">↩</a></h1>
+<p>
+  The tables below list all
+  <a href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html">intersphinx</a>
+  cross-reference targets available from this site.
+  To use any of these targets in your own Sphinx documentation, add the site
+  URL to your
+  <a href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping"><code>intersphinx_mapping</code></a>
+  and then use the <strong>Usage example</strong> column value directly in your
+  <code>.rst</code> or <code>.md</code> source files.
+</p>
 {% for url, inventory in inventories.items() %}
 <h2><a href="{{ url }}">{{ url }}</a></h2>
 {% for role, role_elements in inventory.items() %}
