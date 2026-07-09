@@ -8,6 +8,18 @@
   </head>
   <body>
     {% block content %}
+    <h1>intersphinx untangled</h1>
+    <p>
+      This site lists
+      <a href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html">intersphinx</a>
+      inventories for popular Sphinx-based documentation sites.
+      Each link below leads to a page that displays all of the cross-reference
+      targets available for that site — you can use these targets with Sphinx's
+      <code>:role:`target`</code> syntax in your own documentation once you
+      add the site to your
+      <a href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping"><code>intersphinx_mapping</code></a>
+      configuration.
+    </p>
     <ul>
       {% for site in sites %}
       <li><a href="{{ site }}">{{ site }}</a></li>
