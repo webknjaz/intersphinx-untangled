@@ -1,6 +1,5 @@
 ---
 
-# - https://ansible-lint.rtfd.io
 - https://ansible-pylibssh.rtfd.io/en/latest
 - https://ansible-runner.rtfd.io/en/latest
 - https://boltons.rtfd.io/en/latest
@@ -14,9 +13,7 @@
 - https://devpi.net/docs/devpi/devpi/latest/+doc
 - https://dh-virtualenv.rtfd.io/en/latest
 - https://distlib.rtfd.io/en/latest
-# - https://docutils.rtfd.io/en/sphinx-docs
 - https://docs.aiohttp.org/en/latest
-# - https://docs.ansible.com/ansible/latest
 - https://docs.ansible.com/ansible-core/devel
 - https://docs.cherrypy.dev/en/latest
 - https://docs.kedro.org/en/latest
@@ -52,7 +49,6 @@
 - https://packaging.python.org/pt_BR/latest
 - https://pep517.rtfd.io/en/latest
 - https://pip.pypa.io/en/latest
-# - https://pipenv.pypa.io/en/latest
 - https://pip-tools.rtfd.io/en/latest
 - https://piwheels.rtfd.io/en/latest
 - https://proxypy.rtfd.io/en/latest
